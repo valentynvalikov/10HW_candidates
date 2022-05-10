@@ -2,7 +2,9 @@
 
 {% block content %}
     <div class="col-lg-8 mx-auto mb-3">
-        <p class="mt-4 ps-4 p-1 bg-info"><a class="text-black" href="/"> <<< back to homepage</a></p>
+        {% block backlink %}
+            <p class="mt-4 ps-4 p-1 bg-secondary text-white"><a class="text-black" href="/"> <<< back to homepage</a></p>
+        {% endblock %}
         {% if not matching_candidates %}
             <div class="card card-body bg-light my-2">
                 <h4 class="text-center">No candidates with such skill, or the skill never existed</h4>

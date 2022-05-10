@@ -14,11 +14,13 @@
             <nav class="navbar bg-dark navbar-dark navbar-expand-md">
                 <div class="container">
                     <a class="navbar-brand my-3 ms-2" href="/">Candidates</a>
-                    <form action='/search_skill/' method='get' class="form-inline my-2 ms-auto my-md-0">
-                        <input name='skill' class="form-control" type="text" placeholder="Search Skill">
+                    <form action='/search_skill/' method='get' class="form-inline my-2 ms-auto my-md-0 d-flex flex-row">
+                        <input name="skill" class="form-control me-1" type="text" placeholder="Search Skill">
+                        <input class="btn btn-secondary text-white" type="submit" value=" >>> ">
                     </form>
-                    <form action='/search_name/' method='get' class="form-inline my-2 ms-2 my-md-0">
-                        <input name='name' class="form-control" type="text" placeholder="Search Candidate">
+                    <form action='/search_name/' method='get' class="form-inline my-2 ms-2 my-md-0 d-flex flex-row">
+                        <input name="name" class="form-control me-1" type="text" placeholder="Search Candidate">
+                        <input class="btn btn-secondary text-white" type="submit" value=" >>> ">
                     </form>
                 </div>
             </nav>
@@ -27,6 +29,7 @@
 
     {% block content %}
         <div class="col-lg-8 mx-auto mb-3">
+        {% block backlink %}{% endblock %}
             {% for name, info in name_mapping.items() %}
                 <div class="card card-body bg-light my-2 d-flex flex-row">
                     <img src="{{ info['picture'] }}" class="col-3" width="200px" height="200px" />
