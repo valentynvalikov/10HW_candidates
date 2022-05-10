@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block content %}
+    {% if not candidate %}
+        <div class="col-lg-8 mx-auto mb-3">
+            <p class="mt-4 ps-4 p-1 bg-info"><a class="text-black" href="/"> <<< back to homepage</a></p>
+            <div class="card card-body bg-light my-2">
+                <h4 class="text-center">No such candidate</h4>
+            </div>
+        </div>
+    {% else %}
+        <div class="col-lg-8 mx-auto mb-3">
+            <p class="mt-4 ps-4 p-1 bg-info"><a class="text-black" href="/"> <<< back to homepage</a></p>
+            <div class="card card-body bg-light my-2 d-flex flex-row">
+                <img src="{{ candidate['picture'] }}" class="col-3" width="200px" height="200px" />
+                <div class="d-flex flex-column col-9 text-center">
+                    <h2 class="mb-3">
+                        {{ candidate['name'] }}
+                    </h2>
+                    <p>Position - {{ candidate['position'] }}</p>
+                    <p class="text-wrap">Skills - {{ candidate['skills'] }}</p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

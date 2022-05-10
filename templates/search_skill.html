@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <div class="col-lg-8 mx-auto mb-3">
+        <p class="mt-4 ps-4 p-1 bg-info"><a class="text-black" href="/"> <<< back to homepage</a></p>
+        {% if not matching_candidates %}
+            <div class="card card-body bg-light my-2">
+                <h4 class="text-center">No candidates with such skill, or the skill never existed</h4>
+            </div>
+        {% else %}
+            {% for name, info in matching_candidates.items() %}
+                <div class="card card-body bg-light my-2 d-flex flex-row">
+                    <img src="{{ info['picture'] }}" class="col-3" width="200px" height="200px" />
+                    <div class="d-flex flex-column col-9 text-center">
+                        <h2 class="mb-3">
+                            <a class="text-black-50" href="/candidate/{{ name.lower().replace(' ', '_') }}/">{{ name }}</a>
+                        </h2>
+                        <p>Position - {{ info['position'] }}</p>
+                        <p class="text-wrap">Skills - {{ info['skills'] }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
